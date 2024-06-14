@@ -1,8 +1,9 @@
 import express from 'express';
-import { SERVER_PORT } from './constants/env.constant.js';
 import { errorHandler } from './middlewares/error-handler.middleware.js';
 import { HTTP_STATUS } from './constants/http-status.constant.js';
-import { apiRouter } from './routers/index.js';
+import { usersRouter } from './routers/users.router.js';
+import { authRouter } from './routers/auth.router.js';
+import { resumesRouter } from './routers/resumes.router.js'; 
 
 const app = express();
 
@@ -13,10 +14,10 @@ app.get('/health-check', (req, res) => {
   return res.status(HTTP_STATUS.OK).send(`I'm healthy.`);
 });
 
-app.use('/api', apiRouter);
+app.use('/users', usersRouter);
+app.use('/auth', authRouter);
+app.use('/resumes', resumesRouter); 
 
 app.use(errorHandler);
 
-app.listen(SERVER_PORT, () => {
-  console.log(`서버가 ${SERVER_PORT}번 포트에서 실행 중입니다.`);
-});
+export default app;

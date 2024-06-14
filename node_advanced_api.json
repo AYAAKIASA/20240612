@@ -1,0 +1,432 @@
+{
+    _type: "export",
+    __export_format: 4,
+    __export_date: "2024-05-31T05:36:37.750Z",
+    __export_source: "insomnia.desktop.app:v9.2.0",
+    resources: [
+    {
+    _id: "req_c560fa3a7fd5407c99f6476329456eda",
+    parentId: "fld_2c15395e8cbb44ee9433238d5ad53dbd",
+    modified: 1716983145647,
+    created: 1716983145647,
+    url: "{{ _.baseUrl }}/auth/sign-up",
+    name: "회원가입",
+    description: "",
+    method: "POST",
+    body: {
+    mimeType: "application/json",
+    text: "{
+        "email": "user1@spartacodingclub.kr",
+        "password": "spartan!!123",
+        "passwordConfirm": "spartan!!123",
+        "name": "사용자1"
+    }"
+    },
+    preRequestScript: "",
+    parameters: [ ],
+    headers: [
+    {
+    name: "Content-Type",
+    value: "application/json"
+    },
+    {
+    name: "User-Agent",
+    value: "insomnia/9.2.0"
+    }
+    ],
+    authentication: { },
+    metaSortKey: -1716100733792,
+    isPrivate: false,
+    pathParameters: [ ],
+    settingStoreCookies: true,
+    settingSendCookies: true,
+    settingDisableRenderRequestBody: false,
+    settingEncodeUrl: true,
+    settingRebuildPath: true,
+    settingFollowRedirects: "global",
+    _type: "request"
+    },
+    {
+    _id: "fld_2c15395e8cbb44ee9433238d5ad53dbd",
+    parentId: "wrk_9f486655c32a4bee95d6dfe7ff3185cc",
+    modified: 1716983145646,
+    created: 1716983145646,
+    name: "auth",
+    description: "",
+    environment: { },
+    environmentPropertyOrder: null,
+    metaSortKey: -1716105440181,
+    _type: "request_group"
+    },
+    {
+    _id: "wrk_9f486655c32a4bee95d6dfe7ff3185cc",
+    parentId: null,
+    modified: 1716983145644,
+    created: 1716983145644,
+    name: "sparta-node-advanced",
+    description: "",
+    scope: "collection",
+    _type: "workspace"
+    },
+    {
+    _id: "req_307692f1fcf5411d80bef7121f1caafa",
+    parentId: "fld_2c15395e8cbb44ee9433238d5ad53dbd",
+    modified: 1717064744435,
+    created: 1716983145648,
+    url: "{{ _.baseUrl }}/auth/sign-in",
+    name: "로그인",
+    description: "",
+    method: "POST",
+    body: {
+    mimeType: "application/json",
+    text: "{
+        "email": "applicant@spartacodingclub.kr",
+        "password": "spartan!!123"
+    }"
+    },
+    preRequestScript: "",
+    parameters: [ ],
+    headers: [
+    {
+    name: "Content-Type",
+    value: "application/json"
+    },
+    {
+    name: "User-Agent",
+    value: "insomnia/9.2.0"
+    }
+    ],
+    authentication: { },
+    metaSortKey: -1715979793563.5,
+    isPrivate: false,
+    pathParameters: [ ],
+    settingStoreCookies: true,
+    settingSendCookies: true,
+    settingDisableRenderRequestBody: false,
+    settingEncodeUrl: true,
+    settingRebuildPath: true,
+    settingFollowRedirects: "global",
+    _type: "request"
+    },
+    {
+    _id: "req_d90993551e6f4daf88814452d10a5c24",
+    parentId: "fld_13417c466e7f4ec79006837e5b96601c",
+    modified: 1717033618951,
+    created: 1716983145650,
+    url: "{{ _.baseUrl }}/users/me",
+    name: "내 정보 조회",
+    description: "",
+    method: "GET",
+    body: { },
+    preRequestScript: "",
+    parameters: [ ],
+    headers: [
+    {
+    name: "User-Agent",
+    value: "insomnia/9.2.0"
+    }
+    ],
+    authentication: {
+    type: "bearer",
+    prefix: "Bearer",
+    token: "{{ _.accessToken }}",
+    disabled: false
+    },
+    metaSortKey: -1716105468291,
+    isPrivate: false,
+    pathParameters: [ ],
+    settingStoreCookies: true,
+    settingSendCookies: true,
+    settingDisableRenderRequestBody: false,
+    settingEncodeUrl: true,
+    settingRebuildPath: true,
+    settingFollowRedirects: "global",
+    _type: "request"
+    },
+    {
+    _id: "fld_13417c466e7f4ec79006837e5b96601c",
+    parentId: "wrk_9f486655c32a4bee95d6dfe7ff3185cc",
+    modified: 1716983145649,
+    created: 1716983145649,
+    name: "users",
+    description: "",
+    environment: { },
+    environmentPropertyOrder: null,
+    metaSortKey: -1716105440131,
+    _type: "request_group"
+    },
+    {
+    _id: "req_f934fa5918c546eeb5697e185640d08d",
+    parentId: "fld_43644ab8abb64a38858f38a2a6a3f835",
+    modified: 1717033681369,
+    created: 1716983145650,
+    url: "{{ _.baseUrl }}/resumes",
+    name: "이력서 생성",
+    description: "",
+    method: "POST",
+    body: {
+    mimeType: "application/json",
+    text: "{
+      "title": "튼튼한 개발자 스파르탄 1000",
+      "content": "1000 저는 튼튼함을 제 자랑거리로 선보일 수 있습니다. 어떤 도전이든 두려워하지 않고, 견고한 코드와 해결책을 제시할 자신이 있습니다. 복잡한 문제에 직면했을 때에도 냉정하게 분석하고 빠르게 대응하는 능력을 갖췄습니다. 또한, 팀원들과의 원활한 커뮤니케이션을 통해 프로젝트의 성공을 이끌어내는데 기여할 것입니다. 최고의 결과물을 위해 끊임없이 노력하며, 스파르타코딩클럽에서도 이 같은 튼튼함을 발휘하여 뛰어난 성과를 이루고자 합니다."
+    }"
+    },
+    preRequestScript: "",
+    parameters: [ ],
+    headers: [
+    {
+    name: "Content-Type",
+    value: "application/json"
+    },
+    {
+    name: "User-Agent",
+    value: "insomnia/9.2.0"
+    }
+    ],
+    authentication: {
+    type: "bearer",
+    prefix: "Bearer",
+    token: "{{ _.accessToken }}"
+    },
+    metaSortKey: -1716108334146,
+    isPrivate: false,
+    pathParameters: [ ],
+    settingStoreCookies: true,
+    settingSendCookies: true,
+    settingDisableRenderRequestBody: false,
+    settingEncodeUrl: true,
+    settingRebuildPath: true,
+    settingFollowRedirects: "global",
+    _type: "request"
+    },
+    {
+    _id: "fld_43644ab8abb64a38858f38a2a6a3f835",
+    parentId: "wrk_9f486655c32a4bee95d6dfe7ff3185cc",
+    modified: 1716983145650,
+    created: 1716983145650,
+    name: "resumes",
+    description: "",
+    environment: { },
+    environmentPropertyOrder: null,
+    metaSortKey: -1716105440081,
+    _type: "request_group"
+    },
+    {
+    _id: "req_6a54c91d59894c988fb5ed4170d3172e",
+    parentId: "fld_43644ab8abb64a38858f38a2a6a3f835",
+    modified: 1717033736185,
+    created: 1716983145651,
+    url: "{{ _.baseUrl }}/resumes",
+    name: "이력서 목록 조회",
+    description: "",
+    method: "GET",
+    body: { },
+    preRequestScript: "",
+    parameters: [
+    {
+    id: "pair_2431678b2fc34a6899e044a6d1b88956",
+    name: "sort",
+    value: "DESC",
+    description: "",
+    disabled: false
+    },
+    {
+    id: "pair_b594f3809da944708d78b928a87285ea",
+    name: "status",
+    value: "APPLY",
+    description: "",
+    disabled: false
+    }
+    ],
+    headers: [
+    {
+    name: "User-Agent",
+    value: "insomnia/9.2.0"
+    }
+    ],
+    authentication: {
+    type: "bearer",
+    prefix: "Bearer",
+    token: "{{ _.accessToken }}"
+    },
+    metaSortKey: -1716106901218.5,
+    isPrivate: false,
+    pathParameters: [ ],
+    settingStoreCookies: true,
+    settingSendCookies: true,
+    settingDisableRenderRequestBody: false,
+    settingEncodeUrl: true,
+    settingRebuildPath: true,
+    settingFollowRedirects: "global",
+    _type: "request"
+    },
+    {
+    _id: "req_3e71e3a434d44e37b9b0b137395951e8",
+    parentId: "fld_43644ab8abb64a38858f38a2a6a3f835",
+    modified: 1717033765659,
+    created: 1716983145651,
+    url: "{{ _.baseUrl }}/resumes/:id",
+    name: "이력서 상세 조회",
+    description: "",
+    method: "GET",
+    body: { },
+    preRequestScript: "",
+    parameters: [ ],
+    headers: [
+    {
+    name: "User-Agent",
+    value: "insomnia/9.2.0"
+    }
+    ],
+    authentication: {
+    type: "bearer",
+    prefix: "Bearer",
+    token: "{{ _.accessToken }}"
+    },
+    metaSortKey: -1716106184754.75,
+    isPrivate: false,
+    pathParameters: [
+    {
+    name: "id",
+    value: "8"
+    }
+    ],
+    settingStoreCookies: true,
+    settingSendCookies: true,
+    settingDisableRenderRequestBody: false,
+    settingEncodeUrl: true,
+    settingRebuildPath: true,
+    settingFollowRedirects: "global",
+    _type: "request"
+    },
+    {
+    _id: "req_9a60153ac5df4c5ba61b2a7473ce8ce0",
+    parentId: "fld_43644ab8abb64a38858f38a2a6a3f835",
+    modified: 1717033794598,
+    created: 1716983145651,
+    url: "{{ _.baseUrl }}/resumes/:id",
+    name: "이력서 수정",
+    description: "",
+    method: "PUT",
+    body: {
+    mimeType: "application/json",
+    text: "{
+      "title": "튼튼하고 영리한 개발자 스파르탄 1001"
+    }"
+    },
+    preRequestScript: "",
+    parameters: [ ],
+    headers: [
+    {
+    name: "Content-Type",
+    value: "application/json"
+    },
+    {
+    name: "User-Agent",
+    value: "insomnia/9.2.0"
+    }
+    ],
+    authentication: {
+    type: "bearer",
+    prefix: "Bearer",
+    token: "{{ _.accessToken }}"
+    },
+    metaSortKey: -1716105826522.875,
+    isPrivate: false,
+    pathParameters: [
+    {
+    name: "id",
+    value: "8"
+    }
+    ],
+    settingStoreCookies: true,
+    settingSendCookies: true,
+    settingDisableRenderRequestBody: false,
+    settingEncodeUrl: true,
+    settingRebuildPath: true,
+    settingFollowRedirects: "global",
+    _type: "request"
+    },
+    {
+    _id: "req_833e545bdbd943178913636e3dfec765",
+    parentId: "fld_43644ab8abb64a38858f38a2a6a3f835",
+    modified: 1717033804017,
+    created: 1716983145652,
+    url: "{{ _.baseUrl }}/resumes/:id",
+    name: "이력서 삭제",
+    description: "",
+    method: "DELETE",
+    body: { },
+    preRequestScript: "",
+    parameters: [ ],
+    headers: [
+    {
+    name: "User-Agent",
+    value: "insomnia/9.2.0"
+    }
+    ],
+    authentication: {
+    type: "bearer",
+    prefix: "Bearer",
+    token: "{{ _.accessToken }}"
+    },
+    metaSortKey: -1716105647406.9375,
+    isPrivate: false,
+    pathParameters: [
+    {
+    name: "id",
+    value: "8"
+    }
+    ],
+    settingStoreCookies: true,
+    settingSendCookies: true,
+    settingDisableRenderRequestBody: false,
+    settingEncodeUrl: true,
+    settingRebuildPath: true,
+    settingFollowRedirects: "global",
+    _type: "request"
+    },
+    {
+    _id: "env_6dddc5c02a4749fcb5117c25cac192f7",
+    parentId: "wrk_9f486655c32a4bee95d6dfe7ff3185cc",
+    modified: 1717033662563,
+    created: 1716983145645,
+    name: "Base Environment",
+    data: {
+    baseUrl: "http://localhost:3000/api",
+    accessToken: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNzE3MDMzNjM4LCJleHAiOjE3MTcwNzY4Mzh9.YX8pcEAELC2lJK-DA3pMDbWHs44nhX7PkzEp5rjjeC0",
+    accessTokenRecruiter: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNzE2OTgzMjAzLCJleHAiOjE3MTcwMjY0MDN9.YuriA2QiSdjO7PrUmFZ1AwRyLEnmuS9eowYvZCBVTPY"
+    },
+    dataPropertyOrder: {
+    &: [
+    "baseUrl",
+    "accessToken",
+    "accessTokenRecruiter"
+    ]
+    },
+    color: null,
+    isPrivate: false,
+    metaSortKey: 1716100663598,
+    _type: "environment"
+    },
+    {
+    _id: "jar_eda81af1d13e4d5e986324ba784060b3",
+    parentId: "wrk_9f486655c32a4bee95d6dfe7ff3185cc",
+    modified: 1716983145646,
+    created: 1716983145646,
+    name: "Default Jar",
+    cookies: [ ],
+    _type: "cookie_jar"
+    },
+    {
+    _id: "spc_268ead01b1ed4f6ca9463e8fb7aaee72",
+    parentId: "wrk_9f486655c32a4bee95d6dfe7ff3185cc",
+    modified: 1716983145655,
+    created: 1716983145654,
+    fileName: "sparta-node-advanced",
+    contents: "",
+    contentType: "yaml",
+    _type: "api_spec"
+    }
+    ]
+    }

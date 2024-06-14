@@ -1,14 +1,20 @@
 import { HTTP_STATUS } from '../constants/http-status.constant.js';
+import { HttpError } from '../errors/http.error.js';
 
 export const errorHandler = (err, req, res, next) => {
   console.error(err);
 
-  // joi에서 발생한 에러 처리
+  // Joi에서 발생한 에러 처리
   if (err.name === 'ValidationError') {
     return res.status(HTTP_STATUS.BAD_REQUEST).json({
       status: HTTP_STATUS.BAD_REQUEST,
       message: err.message,
     });
+  }
+
+  // HttpError 클래스에서 발생한 에러 처리
+  if (err instanceof HttpError) {
+    return res.status(err.status).json({ error: err.message });
   }
 
   // 그 밖의 예상치 못한 에러 처리

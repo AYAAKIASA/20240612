@@ -1,21 +1,25 @@
 import express from 'express';
 import { requireAccessToken } from '../middlewares/require-access-token.middleware.js';
-import { HTTP_STATUS } from '../constants/http-status.constant.js';
-import { MESSAGES } from '../constants/message.constant.js';
+import UserController from '../controllers/user.controller.js';
+import { HttpError } from '../errors/http.error.js';
 
 const usersRouter = express.Router();
 
-usersRouter.get('/me', requireAccessToken, (req, res, next) => {
+usersRouter.get('/me', requireAccessToken, async (req, res, next) => {
   try {
-    const data = req.user;
-
-    return res.status(HTTP_STATUS.OK).json({
-      status: HTTP_STATUS.OK,
-      message: MESSAGES.USERS.READ_ME.SUCCEED,
-      data,
-    });
+    const user = await UserController.getUser(req.user.id);
+    res.json({ data: user });
   } catch (error) {
     next(error);
+  }
+});
+
+
+usersRouter.use((err, req, res, next) => {
+  if (err instanceof HttpError) {
+    res.status(err.status).json({ error: err.message });
+  } else {
+    res.status(500).json({ error: 'Internal Server Error' });
   }
 });
 
